@@ -296,12 +296,69 @@ Blockly.JavaScript['PID_readSumSensor_B'] = function(block) {
 Blockly.JavaScript['PuppyBot_cal_moving'] = function(block) {
   var value_speed = Blockly.JavaScript.valueToCode(block, 'speed', Blockly.JavaScript.ORDER_ATOMIC) || '0';
   var value_time = Blockly.JavaScript.valueToCode(block, 'time', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_Round = Blockly.JavaScript.valueToCode(block, 'Round', Blockly.JavaScript.ORDER_ATOMIC) || '0';
   var code = '';
   //code += 'PID_NumPin = ' + value_numSensor+';\t';
-  code += 'setCalibrate_with_moving('+value_speed+','+value_time+');\n';
+  code += 'setCalibrate_with_moving('+value_speed+','+value_time+','+value_Round+');\n';
   return code;
 };
 
+
+Blockly.JavaScript['Read_Status_center_Sensor'] = function(block) {
+ 
+  var value_Sensor_Pin = block.getFieldValue('Sensor_Pin');
+  var value_line_color = block.getFieldValue('line_color');
+  
+  var code = '';
+  if(value_line_color == '0'){
+    code += 'Read_status_sensor_C(' + value_Sensor_Pin+')';
+  }
+  else{
+    code += '!Read_status_sensor_C(' + value_Sensor_Pin+')';
+  }
+  
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['Read_Ref_center_Sensor'] = function(block) {
+ 
+  var value_Sensor_Pin = block.getFieldValue('Sensor_Pin');
+  
+  var code = '';
+  code += '(ReadSensorMinValue_C(' + value_Sensor_Pin+')+ReadSensorMaxValue_C(' + value_Sensor_Pin+'))/2';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['PuppyBot_PID_setMin_C'] = function(block) {
+  var value_numSensor = block.getFieldValue('numSensor');
+  var value_s0 = Blockly.JavaScript.valueToCode(block, 'S0', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s1 = Blockly.JavaScript.valueToCode(block, 'S1', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s2 = Blockly.JavaScript.valueToCode(block, 'S2', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s3 = Blockly.JavaScript.valueToCode(block, 'S3', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s4 = Blockly.JavaScript.valueToCode(block, 'S4', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s5 = Blockly.JavaScript.valueToCode(block, 'S5', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s6 = Blockly.JavaScript.valueToCode(block, 'S6', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s7 = Blockly.JavaScript.valueToCode(block, 'S7', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var code = '';
+  //code += 'PID_NumPin = ' + value_numSensor+';\t';
+  code += 'PID_set_Min_C('+value_s0+','+value_s1+','+value_s2+','+value_s3+','+value_s4+','+value_s5+','+value_s6+','+value_s7+');\n';
+  return code;
+};
+Blockly.JavaScript['PuppyBot_PID_setMax_C'] = function(block) {
+  var value_numSensor = block.getFieldValue('numSensor');
+  var value_s0 = Blockly.JavaScript.valueToCode(block, 'S0', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s1 = Blockly.JavaScript.valueToCode(block, 'S1', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s2 = Blockly.JavaScript.valueToCode(block, 'S2', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s3 = Blockly.JavaScript.valueToCode(block, 'S3', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s4 = Blockly.JavaScript.valueToCode(block, 'S4', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s5 = Blockly.JavaScript.valueToCode(block, 'S5', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s6 = Blockly.JavaScript.valueToCode(block, 'S6', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_s7 = Blockly.JavaScript.valueToCode(block, 'S7', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var code = '';
+  //code += 'PID_NumPin = ' + value_numSensor+';\t';
+  code += 'PID_set_Max_C('+value_s0+','+value_s1+','+value_s2+','+value_s3+','+value_s4+','+value_s5+','+value_s6+','+value_s7+');\n';
+  return code;
+};
 
 
 

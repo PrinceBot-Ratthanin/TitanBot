@@ -98,28 +98,28 @@ Blockly.Blocks['PuppyBot_PID_setMin'] = {
         .appendField("3.Front_setMin");
     this.appendValueInput("S0")
       .setCheck("Number")
-      .appendField("S0");
+      .appendField("F0");
     this.appendValueInput("S1")
       .setCheck("Number")
-      .appendField("S1");
+      .appendField("F1");
     this.appendValueInput("S2")
       .setCheck("Number")
-      .appendField("S2");
+      .appendField("F2");
     this.appendValueInput("S3")
       .setCheck("Number")
-      .appendField("S3");
+      .appendField("F3");
     this.appendValueInput("S4")
       .setCheck("Number")
-      .appendField("S4");
+      .appendField("F4");
     this.appendValueInput("S5")
       .setCheck("Number")
-      .appendField("S5");
+      .appendField("F5");
     this.appendValueInput("S6")
       .setCheck("Number")
-      .appendField("S6");
+      .appendField("F6");
     this.appendValueInput("S7")
       .setCheck("Number")
-      .appendField("S7");
+      .appendField("F7");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -133,28 +133,28 @@ Blockly.Blocks['PuppyBot_PID_setMax'] = {
         .appendField("3.Front_setMax");
     this.appendValueInput("S0")
       .setCheck("Number")
-      .appendField("S0");
+      .appendField("F0");
     this.appendValueInput("S1")
       .setCheck("Number")
-      .appendField("S1");
+      .appendField("F1");
     this.appendValueInput("S2")
       .setCheck("Number")
-      .appendField("S2");
+      .appendField("F2");
     this.appendValueInput("S3")
       .setCheck("Number")
-      .appendField("S3");
+      .appendField("F3");
     this.appendValueInput("S4")
       .setCheck("Number")
-      .appendField("S4");
+      .appendField("F4");
     this.appendValueInput("S5")
       .setCheck("Number")
-      .appendField("S5");
+      .appendField("F5");
     this.appendValueInput("S6")
       .setCheck("Number")
-      .appendField("S6");
+      .appendField("F6");
     this.appendValueInput("S7")
       .setCheck("Number")
-      .appendField("S7");
+      .appendField("F7");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -241,7 +241,7 @@ Blockly.Blocks['Read_Status_Front_Sensor'] = {
   init: function() {
     this.appendDummyInput()
       .appendField("")
-      .appendField(new Blockly.FieldDropdown([["S0", "0"],["S1", "1"],["S2", "2"],["S3", "3"],["S4", "4"],["S5", "5"],["S6", "6"],["S7", "7"],["S8", "8"],["S9", "9"]]), "Sensor_Pin");
+      .appendField(new Blockly.FieldDropdown([["F0", "0"],["F1", "1"],["F2", "2"],["F3", "3"],["F4", "4"],["F5", "5"],["F6", "6"],["F7", "7"]]), "Sensor_Pin");
     this.appendDummyInput()
       .appendField("is detect:")
       .appendField(new Blockly.FieldDropdown([["Black", "0"],["White", "1"]]), "line_color");
@@ -257,7 +257,7 @@ Blockly.Blocks['Read_Ref_Front_Sensor'] = {
   init: function() {
     this.appendDummyInput()
       .appendField("Ref Front sensor:")
-      .appendField(new Blockly.FieldDropdown([["S0", "0"],["S1", "1"],["S2", "2"],["S3", "3"],["S4", "4"],["S5", "5"],["S6", "6"],["S7", "7"],["S8", "8"],["S9", "9"]]), "Sensor_Pin");
+      .appendField(new Blockly.FieldDropdown([["F0", "0"],["F1", "1"],["F2", "2"],["F3", "3"],["F4", "4"],["F5", "5"],["F6", "6"],["F7", "7"]]), "Sensor_Pin");
 
     this.setInputsInline(true);
     this.setOutput(true, "Number");
@@ -288,28 +288,28 @@ Blockly.Blocks['PuppyBot_PID_setPin_B'] = {
       .appendField("1.Back_setPin:")
       .appendField(new Blockly.FieldDropdown([["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"]]), "numSensor");
     this.appendDummyInput()
-      .appendField("SB0_Pin")
+      .appendField("B0_Pin")
       .appendField(new Blockly.FieldDropdown([["-", "11"],["A0", "0"],["A1", "1"],["A2", "2"],["A3", "3"],["A4", "4"],["A5", "5"],["A6", "6"],["A7", "7"],["A8", "8"],["A9", "9"],["A10", "10"]]), "S0_Pin");
     this.appendDummyInput()
-      .appendField("SB1_Pin")
+      .appendField("B1_Pin")
       .appendField(new Blockly.FieldDropdown([["-", "11"],["A0", "0"],["A1", "1"],["A2", "2"],["A3", "3"],["A4", "4"],["A5", "5"],["A6", "6"],["A7", "7"],["A8", "8"],["A9", "9"],["A10", "10"]]), "S1_Pin");
     this.appendDummyInput()
-      .appendField("SB2_Pin")
+      .appendField("B2_Pin")
       .appendField(new Blockly.FieldDropdown([["-", "11"],["A0", "0"],["A1", "1"],["A2", "2"],["A3", "3"],["A4", "4"],["A5", "5"],["A6", "6"],["A7", "7"],["A8", "8"],["A9", "9"],["A10", "10"]]), "S2_Pin");
     this.appendDummyInput()
-      .appendField("SB3_Pin")
+      .appendField("B3_Pin")
       .appendField(new Blockly.FieldDropdown([["-", "11"],["A0", "0"],["A1", "1"],["A2", "2"],["A3", "3"],["A4", "4"],["A5", "5"],["A6", "6"],["A7", "7"],["A8", "8"],["A9", "9"],["A10", "10"]]), "S3_Pin");
     this.appendDummyInput()
-      .appendField("SB4_Pin")
+      .appendField("B4_Pin")
       .appendField(new Blockly.FieldDropdown([["-", "11"],["A0", "0"],["A1", "1"],["A2", "2"],["A3", "3"],["A4", "4"],["A5", "5"],["A6", "6"],["A7", "7"],["A8", "8"],["A9", "9"],["A10", "10"]]), "S4_Pin");
     this.appendDummyInput()
-      .appendField("SB5_Pin")
+      .appendField("B5_Pin")
       .appendField(new Blockly.FieldDropdown([["-", "11"],["A0", "0"],["A1", "1"],["A2", "2"],["A3", "3"],["A4", "4"],["A5", "5"],["A6", "6"],["A7", "7"],["A8", "8"],["A9", "9"],["A10", "10"]]), "S5_Pin");
     this.appendDummyInput()
-      .appendField("SB6_Pin")
+      .appendField("B6_Pin")
       .appendField(new Blockly.FieldDropdown([["-", "11"],["A0", "0"],["A1", "1"],["A2", "2"],["A3", "3"],["A4", "4"],["A5", "5"],["A6", "6"],["A7", "7"],["A8", "8"],["A9", "9"],["A10", "10"]]), "S6_Pin");
     this.appendDummyInput()
-      .appendField("SB7_Pin")
+      .appendField("B7_Pin")
       .appendField(new Blockly.FieldDropdown([["-", "11"],["A0", "0"],["A1", "1"],["A2", "2"],["A3", "3"],["A4", "4"],["A5", "5"],["A6", "6"],["A7", "7"],["A8", "8"],["A9", "9"],["A10", "10"]]), "S7_Pin");
     
     this.setInputsInline(true);
@@ -363,28 +363,28 @@ Blockly.Blocks['PuppyBot_PID_setMin_B'] = {
         .appendField("3.Back_setMin");
     this.appendValueInput("S0")
       .setCheck("Number")
-      .appendField("SB0");
+      .appendField("B0");
     this.appendValueInput("S1")
       .setCheck("Number")
-      .appendField("SB1");
+      .appendField("B1");
     this.appendValueInput("S2")
       .setCheck("Number")
-      .appendField("SB2");
+      .appendField("B2");
     this.appendValueInput("S3")
       .setCheck("Number")
-      .appendField("SB3");
+      .appendField("B3");
     this.appendValueInput("S4")
       .setCheck("Number")
-      .appendField("SB4");
+      .appendField("B4");
     this.appendValueInput("S5")
       .setCheck("Number")
-      .appendField("SB5");
+      .appendField("B5");
     this.appendValueInput("S6")
       .setCheck("Number")
-      .appendField("SB6");
+      .appendField("B6");
     this.appendValueInput("S7")
       .setCheck("Number")
-      .appendField("SB7");
+      .appendField("B7");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -398,28 +398,28 @@ Blockly.Blocks['PuppyBot_PID_setMax_B'] = {
         .appendField("3.Back_setMax");
     this.appendValueInput("S0")
       .setCheck("Number")
-      .appendField("SB0");
+      .appendField("B0");
     this.appendValueInput("S1")
       .setCheck("Number")
-      .appendField("SB1");
+      .appendField("B1");
     this.appendValueInput("S2")
       .setCheck("Number")
-      .appendField("SB2");
+      .appendField("B2");
     this.appendValueInput("S3")
       .setCheck("Number")
-      .appendField("SB3");
+      .appendField("B3");
     this.appendValueInput("S4")
       .setCheck("Number")
-      .appendField("SB4");
+      .appendField("B4");
     this.appendValueInput("S5")
       .setCheck("Number")
-      .appendField("SB5");
+      .appendField("B5");
     this.appendValueInput("S6")
       .setCheck("Number")
-      .appendField("SB6");
+      .appendField("B6");
     this.appendValueInput("S7")
       .setCheck("Number")
-      .appendField("SB7");
+      .appendField("B7");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -505,7 +505,7 @@ Blockly.Blocks['Read_Status_Back_Sensor'] = {
   init: function() {
     this.appendDummyInput()
       .appendField("")
-      .appendField(new Blockly.FieldDropdown([["SB0", "0"],["SB1", "1"],["SB2", "2"],["SB3", "3"],["SB4", "4"],["SB5", "5"],["SB6", "6"],["SB7", "7"],["SB8", "8"],["SB9", "9"]]), "Sensor_Pin");
+      .appendField(new Blockly.FieldDropdown([["B0", "0"],["B1", "1"],["B2", "2"],["B3", "3"],["B4", "4"],["B5", "5"],["B6", "6"],["B7", "7"]]), "Sensor_Pin");
     this.appendDummyInput()
       .appendField("is detect:")
       .appendField(new Blockly.FieldDropdown([["Black", "0"],["White", "1"]]), "line_color");
@@ -520,7 +520,7 @@ Blockly.Blocks['Read_Ref_Back_Sensor'] = {
   init: function() {
     this.appendDummyInput()
       .appendField("Ref Back sensor:")
-      .appendField(new Blockly.FieldDropdown([["SB0", "0"],["SB1", "1"],["SB2", "2"],["SB3", "3"],["SB4", "4"],["SB5", "5"],["SB6", "6"],["SB7", "7"],["SB8", "8"],["SB9", "9"]]), "Sensor_Pin");
+      .appendField(new Blockly.FieldDropdown([["B0", "0"],["B1", "1"],["B2", "2"],["B3", "3"],["B4", "4"],["B5", "5"],["B6", "6"],["B7", "7"]]), "Sensor_Pin");
 
     this.setInputsInline(true);
     this.setOutput(true, "Number");
@@ -607,15 +607,116 @@ Blockly.Blocks['PuppyBot_cal_moving'] = {
     //   .appendField(new Blockly.FieldDropdown([["2WD", "0"],["4WD", "1"]]), "Driver");
     this.appendValueInput("speed")
       .setCheck("Number")
-      .appendField("set calibrate and moving");
+      .appendField("set calibrate All sensor  and moving speed:");
     this.appendValueInput("time")
       .setCheck("Number")
       .appendField("with Time:");
+    this.appendValueInput("round")
+      .setCheck("Number")
+      .appendField("and Round:");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(330);
+    this.setColour('#1DC020');
     this.setTooltip("Rotate ro spin right a robot.");
+  }
+};
+
+Blockly.Blocks['Read_Status_center_Sensor'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField("")
+      .appendField(new Blockly.FieldDropdown([["C0", "0"],["C1", "1"],["C2", "2"],["C3", "3"],["C4", "4"],["C5", "5"],["C6", "6"],["C7", "7"]]), "Sensor_Pin");
+    this.appendDummyInput()
+      .appendField("is detect:")
+      .appendField(new Blockly.FieldDropdown([["Black", "0"],["White", "1"]]), "line_color");
+    
+    this.setInputsInline(true);
+    this.setOutput(true);
+    this.setColour(200);
+    this.setTooltip("");
+  }
+};
+Blockly.Blocks['Read_Ref_center_Sensor'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField("Ref center sensor:")
+      .appendField(new Blockly.FieldDropdown([["C0", "0"],["C1", "1"],["C2", "2"],["C3", "3"],["C4", "4"],["C5", "5"],["C6", "6"],["C7", "7"]]), "Sensor_Pin");
+
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setColour(200);
+    this.setTooltip("");
+  }
+};
+Blockly.Blocks['PuppyBot_PID_setMin_C'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("3.Center_setMin");
+    this.appendValueInput("S0")
+      .setCheck("Number")
+      .appendField("C0");
+    this.appendValueInput("S1")
+      .setCheck("Number")
+      .appendField("C1");
+    this.appendValueInput("S2")
+      .setCheck("Number")
+      .appendField("C2");
+    this.appendValueInput("S3")
+      .setCheck("Number")
+      .appendField("C3");
+    this.appendValueInput("S4")
+      .setCheck("Number")
+      .appendField("C4");
+    this.appendValueInput("S5")
+      .setCheck("Number")
+      .appendField("C5");
+    this.appendValueInput("S6")
+      .setCheck("Number")
+      .appendField("C6");
+    this.appendValueInput("S7")
+      .setCheck("Number")
+      .appendField("C7");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(200);
+    this.setTooltip("Set pin PID");
+  }
+};
+Blockly.Blocks['PuppyBot_PID_setMax_C'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("3.Center_setMax");
+    this.appendValueInput("S0")
+      .setCheck("Number")
+      .appendField("C0");
+    this.appendValueInput("S1")
+      .setCheck("Number")
+      .appendField("C1");
+    this.appendValueInput("S2")
+      .setCheck("Number")
+      .appendField("C2");
+    this.appendValueInput("S3")
+      .setCheck("Number")
+      .appendField("C3");
+    this.appendValueInput("S4")
+      .setCheck("Number")
+      .appendField("C4");
+    this.appendValueInput("S5")
+      .setCheck("Number")
+      .appendField("C5");
+    this.appendValueInput("S6")
+      .setCheck("Number")
+      .appendField("C6");
+    this.appendValueInput("S7")
+      .setCheck("Number")
+      .appendField("C7");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(200);
+    this.setTooltip("Set pin PID");
   }
 };
 

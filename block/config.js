@@ -8,7 +8,7 @@ module.exports = {
             icon: `file:///${dirIcon}/static/cover.jpg`,
             blocks : [
                 'sw1_press',
-                //'sw1_press_one',
+                'bootel_press',
                 'button_1_status',
                 'Light_Sensor',
                 'Light_Sensor_B',
@@ -114,12 +114,12 @@ module.exports = {
                         </value>
                         <value name="width">
                             <shadow type="math_number">
-                                <field name="NUM">10</field>
+                                <field name="NUM">50</field>
                             </shadow>
                         </value>
                         <value name="height">
                             <shadow type="math_number">
-                                <field name="NUM">10</field>
+                                <field name="NUM">50</field>
                             </shadow>
                         </value>
                     </block>`
@@ -347,29 +347,29 @@ module.exports = {
                         </value>
                     </block>`
                 },
-                {
-                    xml: `<sep gap="25"></sep><label text="ระบบขับเคลื่อน 4 ล้อ แบ่งเป็น M1=หน้าซ้าย M2=หน้าขวา M3=หลังซ้าย M4=หลังขวา" web-class="main-content"></label>`
-                },
-                {
-                    xml : 
-                    `<block type="PuppyBotmotor4WD">
-                        <value name="speed">
-                            <shadow type="math_number">
-                                <field name="NUM">50</field>
-                            </shadow>
-                        </value>
-                    </block>`
-                },
-                {
-                    xml : 
-                    `<block type="PuppyBotmotor_Mecanum">
-                        <value name="speed">
-                            <shadow type="math_number">
-                                <field name="NUM">50</field>
-                            </shadow>
-                        </value>
-                    </block>`
-                },
+                // {
+                //     xml: `<sep gap="25"></sep><label text="ระบบขับเคลื่อน 4 ล้อ แบ่งเป็น M1=หน้าซ้าย M2=หน้าขวา M3=หลังซ้าย M4=หลังขวา" web-class="main-content"></label>`
+                // },
+                // {
+                //     xml : 
+                //     `<block type="PuppyBotmotor4WD">
+                //         <value name="speed">
+                //             <shadow type="math_number">
+                //                 <field name="NUM">50</field>
+                //             </shadow>
+                //         </value>
+                //     </block>`
+                // },
+                // {
+                //     xml : 
+                //     `<block type="PuppyBotmotor_Mecanum">
+                //         <value name="speed">
+                //             <shadow type="math_number">
+                //                 <field name="NUM">50</field>
+                //             </shadow>
+                //         </value>
+                //     </block>`
+                // },
                 {
                     xml : 
                     `<block type="PuppyBot_forward">
@@ -480,36 +480,36 @@ module.exports = {
                         </value>
                     </block>`
                 },
-                { 
-                    xml : 
-                    `<block type="PuppyBot_forward2_4WD">
-                        <value name="speed1">
-                            <shadow type="math_number">
-                                <field name="NUM">50</field>
-                            </shadow>
-                        </value>
-                        <value name="speed2">
-                            <shadow type="math_number">
-                                <field name="NUM">50</field>
-                            </shadow>
-                        </value>
-                    </block>`
-                },
-                { 
-                    xml : 
-                    `<block type="PuppyBot_backward2_4WD">
-                        <value name="speed1">
-                            <shadow type="math_number">
-                                <field name="NUM">50</field>
-                            </shadow>
-                        </value>
-                        <value name="speed2">
-                            <shadow type="math_number">
-                                <field name="NUM">50</field>
-                            </shadow>
-                        </value>
-                    </block>`
-                },
+                // { 
+                //     xml : 
+                //     `<block type="PuppyBot_forward2_4WD">
+                //         <value name="speed1">
+                //             <shadow type="math_number">
+                //                 <field name="NUM">50</field>
+                //             </shadow>
+                //         </value>
+                //         <value name="speed2">
+                //             <shadow type="math_number">
+                //                 <field name="NUM">50</field>
+                //             </shadow>
+                //         </value>
+                //     </block>`
+                // },
+                // { 
+                //     xml : 
+                //     `<block type="PuppyBot_backward2_4WD">
+                //         <value name="speed1">
+                //             <shadow type="math_number">
+                //                 <field name="NUM">50</field>
+                //             </shadow>
+                //         </value>
+                //         <value name="speed2">
+                //             <shadow type="math_number">
+                //                 <field name="NUM">50</field>
+                //             </shadow>
+                //         </value>
+                //     </block>`
+                // },
                 
 
         
@@ -527,13 +527,11 @@ module.exports = {
             blocks : [
                
               {
-                xml: `<sep gap="25"></sep><label text="2.ตั้งค่า Min = ค่าที่อ่านจากพื้นสีดำ" web-class="headline"></label>`
+                xml: `<sep gap="25"></sep><label text="คำสั่งตั้งค่าเซนเซอร์ด้านหน้า" web-class="headline"></label>`
               },
-              {
-                xml: `<sep gap="25"></sep><label text="3.ตั้งค่า Max = ค่าที่อ่านจากพื้นสีขาว" web-class="headline"></label>`
-              },
+
                 //{xml:`<block type="PuppyBot_PID_setPin"></block>`},
-                'PuppyBot_PID_setline_color_front',
+                
               //   {xml:
               //         `<block type="set_Sensitive_Front_sensor">
               //               <value name="Sensitive">
@@ -557,8 +555,14 @@ module.exports = {
                                   <field name="NUM">200</field>
                               </shadow>
                           </value>
+                          <value name="round">
+                              <shadow type="math_number">
+                                  <field name="NUM">1</field>
+                              </shadow>
+                          </value>
                       </block>`
             },
+            'PuppyBot_PID_setline_color_front',
 	          {xml:
 	                  `<block type="PuppyBot_PID_setMin">
 	                        <value name="S0">
@@ -715,7 +719,11 @@ module.exports = {
               'PID_readSumSensor',
               "PID_readLine",
 
-	          {xml:`<block type="PuppyBot_PID_setPin_B"></block>`},
+              {
+                xml: `<sep gap="25"></sep><label text="คำสั่งตั้งค่าเซนเซอร์ด้านหลัง" web-class="headline"></label>`
+              },
+
+	          // {xml:`<block type="PuppyBot_PID_setPin_B"></block>`},
               'PuppyBot_PID_setline_color_Black',
 	          
 	          {xml:
@@ -879,6 +887,103 @@ module.exports = {
               "Read_Ref_Back_Sensor",
               'PID_readSumSensor_B',
               "PID_readLine_B",
+              {
+                xml: `<sep gap="25"></sep><label text="คำสั่งตั้งค่าเซนเซอร์ตรงกลาง" web-class="headline"></label>`
+              },
+              {xml:
+                    `<block type="PuppyBot_PID_setMin_C">
+                          <value name="S0">
+                              <shadow type="math_number">
+                                  <field name="NUM">100</field>
+                              </shadow>
+                          </value>
+                          <value name="S1">
+                              <shadow type="math_number">
+                                  <field name="NUM">100</field>
+                              </shadow>
+                          </value>
+                          <value name="S2">
+                              <shadow type="math_number">
+                                  <field name="NUM">100</field>
+                              </shadow>
+                          </value>
+                          <value name="S3">
+                              <shadow type="math_number">
+                                  <field name="NUM">100</field>
+                              </shadow>
+                          </value>
+                          <value name="S4">
+                              <shadow type="math_number">
+                                  <field name="NUM">100</field>
+                              </shadow>
+                          </value>
+                          <value name="S5">
+                              <shadow type="math_number">
+                                  <field name="NUM">100</field>
+                              </shadow>
+                          </value>
+                          <value name="S6">
+                              <shadow type="math_number">
+                                  <field name="NUM">100</field>
+                              </shadow>
+                          </value>
+                          <value name="S7">
+                              <shadow type="math_number">
+                                  <field name="NUM">100</field>
+                              </shadow>
+                          </value>
+                          
+                      </block>`
+            },
+            {
+                xml:
+                    `<block type="PuppyBot_PID_setMax_C">
+                          <value name="S0">
+                              <shadow type="math_number">
+                                  <field name="NUM">1023</field>
+                              </shadow>
+                          </value>
+                          <value name="S1">
+                              <shadow type="math_number">
+                                  <field name="NUM">1023</field>
+                              </shadow>
+                          </value>
+                          <value name="S2">
+                              <shadow type="math_number">
+                                  <field name="NUM">1023</field>
+                              </shadow>
+                          </value>
+                          <value name="S3">
+                              <shadow type="math_number">
+                                  <field name="NUM">1023</field>
+                              </shadow>
+                          </value>
+                          <value name="S4">
+                              <shadow type="math_number">
+                                  <field name="NUM">1023</field>
+                              </shadow>
+                          </value>
+                          <value name="S5">
+                              <shadow type="math_number">
+                                  <field name="NUM">1023</field>
+                              </shadow>
+                          </value>
+                          <value name="S6">
+                              <shadow type="math_number">
+                                  <field name="NUM">1023</field>
+                              </shadow>
+                          </value>
+                          <value name="S7">
+                              <shadow type="math_number">
+                                  <field name="NUM">1023</field>
+                              </shadow>
+                          </value>
+                          
+                      </block>`
+            },
+              "Read_Status_center_Sensor",
+              'Read_Ref_center_Sensor',
+              
 
                 ]
         },

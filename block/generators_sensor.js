@@ -4,8 +4,8 @@ Blockly.JavaScript['sw1_press'] = function(block) {
   var code = 'wait_SW1();\n';
   return code;
 };
-Blockly.JavaScript['sw1_press_one'] = function(block) {  
-  var code = 'wait_SW1_one();\n';
+Blockly.JavaScript['bootel_press'] = function(block) {  
+  var code = 'wait_boot_button();\n';
   return code;
 };
 Blockly.JavaScript['button_1_status'] = function(block) {  

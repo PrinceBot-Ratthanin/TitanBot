@@ -5,7 +5,7 @@ module.exports = function(Blockly){
 Blockly.Blocks['sw1_press'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("SW1_press");
+        .appendField("Wait SW1 pressed");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(65);
@@ -13,10 +13,10 @@ Blockly.Blocks['sw1_press'] = {
  this.setHelpUrl("");
   }
 };
-Blockly.Blocks['sw1_press_one'] = {
+Blockly.Blocks['bootel_press'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("SW1_press one sensor ");
+        .appendField("Wait Boot button pressed");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(65);
@@ -52,9 +52,33 @@ Blockly.Blocks['Ultrasinoc_sensor'] = {
 Blockly.Blocks['Light_Sensor'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Light sensor(ADC):")
+        .appendField("Front Light sensor(ADC):")
         .appendField(new Blockly.FieldDropdown([["0","0"],["1","1"], ["2","2"], ["3","3"],
-        										["4","4"],["5","5"], ["6","6"], ["7","7"], ["8","8"], ["9","9"], ["10","10"]]), "pin");
+        										["4","4"],["5","5"], ["6","6"], ["7","7"]]), "pin");
+    this.setOutput(true);
+    this.setColour(65);
+    this.setTooltip("read pos EncoderA Pin 26");
+    this.setHelpUrl("");
+  }
+};
+Blockly.Blocks['Light_Sensor_B'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Back Light sensor(ADC):")
+        .appendField(new Blockly.FieldDropdown([["0","0"],["1","1"], ["2","2"], ["3","3"],
+        										["4","4"],["5","5"], ["6","6"], ["7","7"]]), "pin");
+    this.setOutput(true);
+    this.setColour(65);
+    this.setTooltip("read pos EncoderA Pin 26");
+    this.setHelpUrl("");
+  }
+};
+Blockly.Blocks['Light_Sensor_C'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Center Light sensor(ADC):")
+        .appendField(new Blockly.FieldDropdown([["0","0"],["1","1"], ["2","2"], ["3","3"],
+        										["4","4"],["5","5"], ["6","6"], ["7","7"]]), "pin");
     this.setOutput(true);
     this.setColour(65);
     this.setTooltip("read pos EncoderA Pin 26");
