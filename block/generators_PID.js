@@ -296,7 +296,7 @@ Blockly.JavaScript['PID_readSumSensor_B'] = function(block) {
 Blockly.JavaScript['PuppyBot_cal_moving'] = function(block) {
   var value_speed = Blockly.JavaScript.valueToCode(block, 'speed', Blockly.JavaScript.ORDER_ATOMIC) || '0';
   var value_time = Blockly.JavaScript.valueToCode(block, 'time', Blockly.JavaScript.ORDER_ATOMIC) || '0';
-  var value_Round = Blockly.JavaScript.valueToCode(block, 'Round', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+  var value_Round = Blockly.JavaScript.valueToCode(block, 'round', Blockly.JavaScript.ORDER_ATOMIC) || '0';
   var code = '';
   //code += 'PID_NumPin = ' + value_numSensor+';\t';
   code += 'setCalibrate_with_moving('+value_speed+','+value_time+','+value_Round+');\n';
