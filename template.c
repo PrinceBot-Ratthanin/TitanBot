@@ -3,9 +3,6 @@
 #include <KB_music.h>
 
 
-#include <SSD1306Wire.h>
-SSD1306Wire OLED(0x3c, 4, 5);
-
 
 
 KB_music music;
@@ -27,9 +24,7 @@ void setup()
   setSensorPins((const int[]) {0, 1, 2 , 3,4,5,6,7}, 8);
   setSensorPins_B((const int[]) {0, 1, 2 , 3,4,5,6,7}, 8);
   music.begin();
-  OLED.init();
-  OLED.flipScreenVertically();
-  OLED.setFont(ArialMT_Plain_10);
+ 
 
   ${SETUP_CODE}
   ${BLOCKSETUP}

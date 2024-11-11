@@ -1,13 +1,14 @@
 #include <Servo.h>
 #include "Adafruit_MCP3008.h"
 #include "Adafruit_TCS34725.h"
+#include "SSD1306Wire.h"
 
 Adafruit_MCP3008 Lightsensor_ADC1;
 Adafruit_MCP3008 Lightsensor_ADC2;
 Adafruit_MCP3008 Lightsensor_ADC3;
 
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X);
-
+SSD1306Wire OLED(0x3c, 4, 5);
 
 
 Servo servo1;
@@ -60,6 +61,9 @@ void TitanBot_setup() {
   Lightsensor_ADC2.begin(10, 11, 12, 13);
   Lightsensor_ADC3.begin(10, 11, 12, 8);
   pinMode(9, INPUT_PULLUP);
+  OLED.init();
+  OLED.flipScreenVertically();
+  OLED.setFont(ArialMT_Plain_10);
 
 
 }
@@ -114,28 +118,118 @@ void buzzer(int freq, int timr_delay) {
 //   tft_.setTextWrap(true);
 //   tft_.println(text);
 // }
+void Read_light_sensor(){
+       OLED.drawString(0,0,String(String("F0::")));
+       OLED.drawString(28,0,String(ADC_Read(0)));
+       OLED.drawString(65,0,String(String("F1::")));
+       OLED.drawString(93,0,String(ADC_Read(1)));
+       OLED.drawString(0,16,String(String("F2::")));
+       OLED.drawString(28,16,String(ADC_Read(2)));
+       OLED.drawString(65,16,String(String("F3::")));
+       OLED.drawString(93,16,String(ADC_Read(3)));
+       OLED.drawString(0,32,String(String("F4::")));
+       OLED.drawString(28,32,String(ADC_Read(4)));
+       OLED.drawString(65,32,String(String("F5::")));
+       OLED.drawString(93,32,String(ADC_Read(5)));
+       OLED.drawString(0,45,String(String("F6::")));
+       OLED.drawString(28,45,String(ADC_Read(6)));
+       OLED.drawString(65,45,String(String("F7::")));
+       OLED.drawString(93,45,String(ADC_Read(7)));
+}
+void Read_light_sensor_B(){
+       OLED.drawString(0,0,String(String("B0::")));
+       OLED.drawString(28,0,String(ADC_Read_B(0)));
+       OLED.drawString(65,0,String(String("B1::")));
+       OLED.drawString(93,0,String(ADC_Read_B(1)));
+       OLED.drawString(0,16,String(String("B2::")));
+       OLED.drawString(28,16,String(ADC_Read_B(2)));
+       OLED.drawString(65,16,String(String("B3::")));
+       OLED.drawString(93,16,String(ADC_Read_B(3)));
+       OLED.drawString(0,32,String(String("B4::")));
+       OLED.drawString(28,32,String(ADC_Read_B(4)));
+       OLED.drawString(65,32,String(String("B5::")));
+       OLED.drawString(93,32,String(ADC_Read_B(5)));
+       OLED.drawString(0,45,String(String("B6::")));
+       OLED.drawString(28,45,String(ADC_Read_B(6)));
+       OLED.drawString(65,45,String(String("B7::")));
+       OLED.drawString(93,45,String(ADC_Read_B(7)));
+}
+void Read_light_sensor_C(){
+       OLED.drawString(0,0,String(String("C0::")));
+       OLED.drawString(28,0,String(ADC_Read_C(0)));
+       OLED.drawString(65,0,String(String("C1::")));
+       OLED.drawString(93,0,String(ADC_Read_C(1)));
+       OLED.drawString(0,16,String(String("C2::")));
+       OLED.drawString(28,16,String(ADC_Read_C(2)));
+       OLED.drawString(65,16,String(String("C3::")));
+       OLED.drawString(93,16,String(ADC_Read_C(3)));
+       OLED.drawString(0,32,String(String("C4::")));
+       OLED.drawString(28,32,String(ADC_Read_C(4)));
+       OLED.drawString(65,32,String(String("C5::")));
+       OLED.drawString(93,32,String(ADC_Read_C(5)));
+       OLED.drawString(0,45,String(String("C6::")));
+       OLED.drawString(28,45,String(ADC_Read_C(6)));
+       OLED.drawString(65,45,String(String("C7::")));
+       OLED.drawString(93,45,String(ADC_Read_C(7)));
+}
 void wait_SW1() {
-  int state_waitSW1 = 0;
-  pinMode(9, INPUT_PULLUP);
+  int state_sensor = 0;
+  pinMode(9,INPUT_PULLUP);
+   OLED.clear();
+   OLED.setFont(ArialMT_Plain_16);
+   OLED.drawString(35,0,"TitanBot");
+   OLED.drawString(34,20,"Welcome");
+   OLED.display();
+  delay(700);
+   OLED.setFont(ArialMT_Plain_10);
+  while(digitalRead(9) == 1){
+    while(BOOTSEL){
+      
+        state_sensor += 1;
+        if(state_sensor > 2)state_sensor = 0;
+        buzzer(500,100);
+      while(BOOTSEL){}
+    }
 
-  while (digitalRead(9) == 1){
+      OLED.clear();
+    if(state_sensor == 0){
+     Read_light_sensor(); 
+    }
+    else if(state_sensor == 1){
+     Read_light_sensor_B(); 
+    }
+    else if(state_sensor == 2){
+     Read_light_sensor_C(); 
+    }
+     
+      OLED.display();
+     delay(50);
 
   }
-  
   buzzer(500,100);
+   OLED.clear();
+   OLED.display();
+  
 }
-void wait_SW1_one() {
+void wait_boot_button() {
   int state_waitSW1 = 0;
-  pinMode(9, INPUT_PULLUP);
+  OLED.clear();
+   OLED.setFont(ArialMT_Plain_16);
+   OLED.drawString(35,0,"TitanBot");
+   OLED.drawString(0,20,"wait BOOT button ");
+   OLED.display();
+  delay(700);
   do
   {
     
     
     
     delay(50);
-  } while (digitalRead(9) == 1);
+  } while (BOOTSEL == 0);
   
   buzzer(500,100);
+  OLED.clear();
+   OLED.display();
 }
 
 void motor(int pin, int speed_Motor) {
@@ -726,7 +820,27 @@ void setCalibrate_B(int cal_round) {
 
 
 
-
+void PID_set_Min_C(int S0,int S1,int S2,int S3,int S4,int S5,int S6,int S7){
+  //setSensorMin((const int[]) {S0, S1, S2, S3, S4, S5, S6, S7});
+  _min_sensor_values_C[0] = S0;
+  _min_sensor_values_C[1] = S1;
+  _min_sensor_values_C[2] = S2;
+  _min_sensor_values_C[3] = S3;
+  _min_sensor_values_C[4] = S4;
+  _min_sensor_values_C[5] = S5;
+  _min_sensor_values_C[6] = S6;
+  _min_sensor_values_C[7] = S7;
+}
+void PID_set_Max_C(int S0,int S1,int S2,int S3,int S4,int S5,int S6,int S7){
+  _max_sensor_values_C[0] = S0;
+  _max_sensor_values_C[1] = S1;
+  _max_sensor_values_C[2] = S2;
+  _max_sensor_values_C[3] = S3;
+  _max_sensor_values_C[4] = S4;
+  _max_sensor_values_C[5] = S5;
+  _max_sensor_values_C[6] = S6;
+  _max_sensor_values_C[7] = S7;
+}
 int RefSensor_C(int ch){
   return ( _max_sensor_values_C[ch] + _min_sensor_values_C[ch] ) / 2 ;
 }
@@ -776,7 +890,15 @@ bool Read_status_sensor(int pin_sensor){
 
 
 bool Read_status_sensor_B(int pin_sensor){
-  return ADC_Read(_sensorPins_B[pin_sensor]) < ((_max_sensor_values_B[pin_sensor] + _min_sensor_values_B[pin_sensor]) / 2) ? true : false;
+  return ADC_Read_B(_sensorPins_B[pin_sensor]) < ((_max_sensor_values_B[pin_sensor] + _min_sensor_values_B[pin_sensor]) / 2) ? true : false;
+}
+
+bool Read_status_sensor_C(int pin_sensor){
+  return ADC_Read_C(_sensorPins_C[pin_sensor]) < ((_max_sensor_values_C[pin_sensor] + _min_sensor_values_C[pin_sensor]) / 2) ? true : false;
+}
+
+int refSensor_C(int ch){
+  return ( _max_sensor_values_C[ch] + _min_sensor_values_C[ch] ) / 2 ;
 }
 
 int Read_sumValue_sensor(){
@@ -806,6 +928,8 @@ int Read_sumValue_sensor_B(){
    
     return value;
 }
+
+
 int PID_NumPin = 8;
 int PID_NumPin_B = 8;
 void PID_set_Pin(int S0,int S1,int S2,int S3,int S4,int S5,int S6,int S7){
@@ -838,19 +962,22 @@ int Read_Color_TCS(int color_of_sensor)
 
   return data_color;
 }
-void setCalibrate_with_moving(int speed_motor,int cal_round) {
+void setCalibrate_with_moving(int speed_motor,int cal_round,int round) {
 
-  fd(speed_motor); 
-  for(int i = 0;i<cal_round;i++){
-  	setCalibrate(1);
-  	setCalibrate_B(1);
-  	setCalibrate_C(1);
-  }
-  bk(speed_motor); 
-  for(int i = 0;i<cal_round;i++){
-  	setCalibrate(1);
-  	setCalibrate_B(1);
-  	setCalibrate_C(1);
+  for(int i_round = 0;i_round < round; i_round++)
+  {
+    fd(speed_motor); 
+    for(int i = 0;i<cal_round;i++){
+    	setCalibrate(1);
+    	setCalibrate_B(1);
+    	setCalibrate_C(1);
+    }
+    bk(speed_motor); 
+    for(int i = 0;i<cal_round;i++){
+    	setCalibrate(1);
+    	setCalibrate_B(1);
+    	setCalibrate_C(1);
+    }
   } 
 
   ao();
